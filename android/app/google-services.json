@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "78590369173",
+    "firebase_url": "https://sales-finder-1cad8-default-rtdb.firebaseio.com",
+    "project_id": "sales-finder-1cad8",
+    "storage_bucket": "sales-finder-1cad8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78590369173:android:c694231c945f6bfe35ea9c",
+        "android_client_info": {
+          "package_name": "com.example.sales_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78590369173-hu8k29b4tkv83l1pvftffdrcbcs8n0g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9DncWcutC1nASLHPbGIGVtmC0JIuUHCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78590369173-hu8k29b4tkv83l1pvftffdrcbcs8n0g5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "78590369173-odurnpv85uqb9odkgj9mm1p3opja6tbl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.salesFinder"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
