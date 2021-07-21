@@ -1,10 +1,15 @@
+/* /////////////////////////////////////
+[summary] UI/サインイン
+///////////////////////////////////// */
 import 'package:flutter/material.dart';
+import 'sign_in_model.dart';
 import 'package:sales_finder/common/manager/firebase_auth.dart';
 import 'package:sales_finder/sign_up/sign_up_page.dart';
+import 'package:sales_finder/common/text_data.dart';
 
 class SignInPage extends StatelessWidget {
-  String _email = '';
-  String _password = '';
+  final SignInModel _signInModel = SignInModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,38 +17,34 @@ class SignInPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('サインイン'),
-            Text('Eメール'),
+            Text(TextSignIn.TXT_SIGN_IN),
+            Text(TextSignIn.TXT_EMAIL),
             TextField(
               onChanged: (context) {
-                _email = context;
-                print(_email);
+                _signInModel.email = context;
               },
             ),
-            Text('パスワード'),
+            Text(TextSignIn.TXT_PASSWORD),
             TextField(
               onChanged: (context) {
-                _password = context;
-                print(_password);
+                _signInModel.password = context;
               },
             ),
             ElevatedButton(
-              child: Text('Sign in with Email'),
+              child: Text(TextSignIn.TXT_SIGN_IN_EMAIL),
               onPressed: () {
-                FirebaseAuthManager()
-                    .signInWithEmailAndPassword(_email, _password);
-                print(_email);
-                print(_password);
+                FirebaseAuthManager().signInWithEmailAndPassword(
+                    _signInModel.email, _signInModel.password);
               },
             ),
             ElevatedButton(
-              child: Text('Sign in with Google'),
+              child: Text(TextSignIn.TXT_SIGN_IN_GOOGLE),
               onPressed: () {
                 FirebaseAuthManager().signInWithGoogle();
               },
             ),
             InkWell(
-              child: Text('サインアップ？？'),
+              child: Text(TextSignIn.TXT_MOVE_TO_SIGN_UP),
               onTap: () {
                 Navigator.push(
                   context,

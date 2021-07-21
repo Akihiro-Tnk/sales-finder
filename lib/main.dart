@@ -1,5 +1,9 @@
+/* /////////////////////////////////////
+[summary] アプリ開始
+///////////////////////////////////// */
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sales_finder/home/home_page.dart';
 import 'package:sales_finder/sign_up/sign_up_page.dart';
 
 Future<void> main() async {

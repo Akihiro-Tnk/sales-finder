@@ -1,8 +1,8 @@
 /* /////////////////////////////////////
-[summary] 内部処理/サインイン
+[summary] 内部処理/サインアップ
 ///////////////////////////////////// */
 
-class SignInModel {
+class SignUpModel {
   String email = '';
   String password = '';
 }
