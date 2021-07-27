@@ -17,34 +17,34 @@ class SignInPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(TextSignIn.TXT_SIGN_IN),
-            Text(TextSignIn.TXT_EMAIL),
+            const Text(TextSignIn.TXT_SIGN_IN),
+            const Text(TextSignIn.TXT_EMAIL),
             TextField(
               onChanged: (context) {
                 _signInModel.email = context;
               },
             ),
-            Text(TextSignIn.TXT_PASSWORD),
+            const Text(TextSignIn.TXT_PASSWORD),
             TextField(
               onChanged: (context) {
                 _signInModel.password = context;
               },
             ),
             ElevatedButton(
-              child: Text(TextSignIn.TXT_SIGN_IN_EMAIL),
+              child: const Text(TextSignIn.TXT_SIGN_IN_EMAIL),
               onPressed: () {
                 FirebaseAuthManager().signInWithEmailAndPassword(
                     _signInModel.email, _signInModel.password);
               },
             ),
             ElevatedButton(
-              child: Text(TextSignIn.TXT_SIGN_IN_GOOGLE),
+              child: const Text(TextSignIn.TXT_SIGN_IN_GOOGLE),
               onPressed: () {
                 FirebaseAuthManager().signInWithGoogle();
               },
             ),
             InkWell(
-              child: Text(TextSignIn.TXT_MOVE_TO_SIGN_UP),
+              child: const Text(TextSignIn.TXT_MOVE_TO_SIGN_UP),
               onTap: () {
                 Navigator.push(
                   context,

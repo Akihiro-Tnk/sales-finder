@@ -2,25 +2,42 @@
 [summary] UI/ホーム画面
 ///////////////////////////////////// */
 import 'package:flutter/material.dart';
-import 'package:sales_finder/chat/chat_page.dart';
-import 'package:sales_finder/common/page/header.dart';
-import 'package:sales_finder/common/page/footer.dart';
-import 'package:sales_finder/search/search_page.dart';
+import 'package:provider/provider.dart';
+import 'package:sales_finder/common/text_data.dart';
+import 'package:sales_finder/home/header/header_page.dart';
+import 'package:sales_finder/home/footer/footer_model.dart';
+import 'package:sales_finder/home/home_model.dart';
 
 class HomePage extends StatelessWidget {
-  static const String _text = 'ホーム画面';
-  static List<Center> _pageList = [
-    HomePage().createCenter(),
-    SearchPage().createCenter(),
-    ChatPage().createCenter(),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: Header(),
-      body: _pageList[Footer().getSelectedIndex()],
-      bottomNavigationBar: Footer(),
+    return ChangeNotifierProvider<FooterModel>(
+      create: (_) => FooterModel(),
+      child: Consumer<FooterModel>(builder: (context, model, child) {
+        return Scaffold(
+          appBar: HeaderPage(),
+          body: HomeModel().pageList[model.selectedIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.chat_bubble),
+                label: 'Chat',
+              ),
+            ],
+            currentIndex: model.selectedIndex,
+            onTap: model.onItemTapped,
+            type: BottomNavigationBarType.fixed,
+          ),
+        );
+      }),
     );
   }
 
@@ -29,7 +46,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(_text),
+          Text(TextHome.TXT_HOME),
         ],
       ),
     );
