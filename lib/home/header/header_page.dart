@@ -3,13 +3,19 @@
 ///////////////////////////////////// */
 import 'package:flutter/material.dart';
 import 'package:sales_finder/common/manager/firebase_auth.dart';
-import 'package:sales_finder/sign_in/sign_in_page.dart';
+import 'package:sales_finder/common/text_data.dart';
 
-class Header extends StatelessWidget with PreferredSizeWidget {
+class HeaderPage extends StatelessWidget with PreferredSizeWidget {
+  final Set<String> _sideMenuList = {
+    TextHeader.TXT_SIDE_MENU_PROFILE,
+    TextHeader.TXT_SIDE_MENU_SETTING,
+    TextHeader.TXT_SIDE_MENU_SIGN_OUT
+  };
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Sales Finder'),
+      title: Text(TextHeader.TXT_APP_TITLE),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.notifications),
@@ -18,7 +24,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
         PopupMenuButton<String>(
           onSelected: handleClick,
           itemBuilder: (BuildContext context) {
-            return {'Profile', 'Settings', 'SignOut'}
+            return _sideMenuList
                 .map((String choice) => PopupMenuItem<String>(
                       value: choice,
                       child: Text(choice),
@@ -32,11 +38,11 @@ class Header extends StatelessWidget with PreferredSizeWidget {
 
   void handleClick(String value) {
     switch (value) {
-      case 'Profile':
+      case TextHeader.TXT_SIDE_MENU_PROFILE:
         break;
-      case 'Settings':
+      case TextHeader.TXT_SIDE_MENU_SETTING:
         break;
-      case 'SignOut':
+      case TextHeader.TXT_SIDE_MENU_SIGN_OUT:
         FirebaseAuthManager().signOut();
         break;
     }
